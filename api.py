@@ -17,7 +17,7 @@ groq_client = groq.Groq(api_key=GROQ_API_KEY)
 sys_prompt = """You are a professional product description generator. 
 Your task is to create engaging, informative, and detailed product descriptions based on the provided details, including specifications, category, subcategory, and price. 
 The output should include rich formatting with bold headings, bullet points for key features, and a consistent font size.
-Include sections such as Product Overview, Key Features, and Price Information, with bold tags for important text. Use HTML tags where needed for formatting."""
+Include sections such as Product Overview, Key Features, and Price Information, with bold tags for important text. Use HTML tags  and make it well formatted. with resaonable padding where needed"""
 
 models = [
     "llama-3.1-405b-reasoning",
@@ -71,7 +71,7 @@ Generate a detailed product description that includes sections such as:
 2. **Key Features** - Highlight main specifications as bullet points with appropriate tags for bold text.
 3. **Price Information** - Include a statement on price and value for money.
 
-Ensure the description uses bold tags, headings, and font sizes for clear sectioning."""
+Ensure you suggest product name and the description uses bold tags, headings, consistent font sizes and other formatting method make sure they are well formatted for clear sectioning."""
     
     try:
         description = generate(model, query, temperature=0.7)
