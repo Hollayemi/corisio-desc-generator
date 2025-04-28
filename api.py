@@ -31,7 +31,7 @@ app = FastAPI()
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:4001", "https://corislo.vercel.app"],  # or ["*"] to allow all origins
+    allow_origins=["http://localhost:4001", "https://corislo.vercel.app", "https://corisio.com"],  # or ["*"] to allow all origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -61,8 +61,9 @@ async def generate_description(request: DescriptionRequest):
     
     # Construct the query with more detailed formatting instructions
     query = f"""Category: {request.category}
+    price = float(request.prodPrice)
 Subcategory: {request.subcategory}
-Price: ₦{request.prodPrice}
+Price: ₦{price}
 deliveryMethods: {f"{request.deliveryMethod}"}
 Specifications: {', '.join([f"{k}: {v}" for k, v in request.specification.items()])}
 
