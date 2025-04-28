@@ -61,9 +61,8 @@ async def generate_description(request: DescriptionRequest):
     
     # Construct the query with more detailed formatting instructions
     query = f"""Category: {request.category}
-    price = float(request.prodPrice)
 Subcategory: {request.subcategory}
-Price: ₦{price}
+Price: ₦{request.prodPrice}
 deliveryMethods: {f"{request.deliveryMethod}"}
 Specifications: {', '.join([f"{k}: {v}" for k, v in request.specification.items()])}
 
